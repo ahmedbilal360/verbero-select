@@ -3,9 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Verbero Select Coming Soon</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+
+        .floating { animation: float 6s ease-in-out infinite; }
+        .floating-slow { animation: float 8s ease-in-out infinite; }
+        .floating-slower { animation: float 10s ease-in-out infinite; }
+
+        /* Large bouncy "Coming Soon" badge */
+        @keyframes bounceY {
+            0% { transform: translateY(0); }
+            30% { transform: translateY(-26px); }
+            50% { transform: translateY(-10px); }
+            70% { transform: translateY(-4px); }
+            100% { transform: translateY(0); }
+        }
+
+        .badge-bounce { animation: bounceY 1.8s cubic-bezier(.28,.84,.42,1) infinite; will-change: transform; }
+
+        @media (prefers-reduced-motion: reduce) {
+            .badge-bounce { animation: none; }
+        }
+    </style>
 </head>
-<body>
-    <h1>Hello World</h1>
+<body class="min-h-screen flex flex-col bg-black " style="background-image: url('assets/images/Rectangle20.png');">
+    <!-- Header -->
+    <header class="container mx-auto px-4 py-6">
+        <div class="flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="w-20 flex items-center justify-center">
+                    <img src="assets/images/header.png" alt="">
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="flex-grow flex items-center relative overflow-hidden">
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-20 left-10 w-20 h-20 rounded-full bg-white opacity-20 floating"></div>
+            <div class="absolute top-40 right-20 w-32 h-32 rounded-full bg-black opacity-10 floating-slow"></div>
+            <div class="absolute bottom-20 left-1/4 w-24 h-24 rounded-full bg-white opacity-30 floating-slower"></div>
+        </div>
+
+        <div class="container mx-auto px-4 py-12 relative z-10">
+            <div class="items-center">
+                <div class="text-center md:text-center max-w-[900px] mx-auto">
+                    <!-- Large bouncy Coming Soon label -->
+                    <p aria-hidden="false" class="inline-block px-8 py-3 rounded-full bg-[#93D50A] text-black text-2xl md:text-3xl lg:text-4xl font-bold uppercase tracking-wider mb-6 shadow-lg badge-bounce transform-gpu">Coming Soon</p>
+                    <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight text-[#93D50A]">
+                        The Selects Standard: <span class="font-bold">Built for Hockey.</span> Forged for Life.
+
+                    </h1>
+
+                    <p class="text-lg md:text-xl mb-8 md:mx-0 text-white items-center">
+                         Verbero Selects is a premier youth hockey organization dedicated to developing elite athletes through high-level training,
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="container mx-auto px-4 py-6 border-t border-white">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+            <div class="text-sm text-white">
+                &copy; 2025 Verbero Select. All rights reserved.
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
